@@ -9,8 +9,5 @@
         <module name="middleware-fj22" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="middleware-fj22" target="1.6" />
-    </bytecodeTargetLevel>
   </component>
 </project>

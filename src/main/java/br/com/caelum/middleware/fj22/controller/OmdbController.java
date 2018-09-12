@@ -10,9 +10,9 @@ import org.springframework.web.client.RestTemplate;
  * Created by matheusbrandino on 6/9/17.
  */
 @RestController
-public class ImdbController {
+public class OmdbController {
 
-    @GetMapping(value = "/imdb", produces = "application/json")
+    @GetMapping(value = "/movie", produces = "application/json")
     public String recebe(@RequestParam("title") String title) {
 
         RestTemplate template = new RestTemplate();
