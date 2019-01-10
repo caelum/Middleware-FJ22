@@ -3,6 +3,7 @@ package br.com.caelum.middleware.fj22.client;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -22,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-public class ClientTest {
+public class OmdbControllerTest {
 
     @Autowired
     private MockMvc mvc;
@@ -30,9 +31,9 @@ public class ClientTest {
     @Test
     public void deveRepassarRequisicao() throws Exception {
 
-        mvc.perform(get("/imdb?title=Rogue+One"))
+        mvc.perform(get("/movie").param("title", "Rogue+One"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.Title", is("Rogue One")))
+                .andExpect(jsonPath("$.Title", is("Rogue One: A Star Wars Story")))
                 .andExpect(jsonPath("$.Year", is("2016")))
                 .andExpect(jsonPath("$.Genre", containsString("Sci-Fi")));
     }
