@@ -20,7 +20,7 @@ public class OmdbController {
     public String recebe(@RequestParam("title") String title) {
 
         RestTemplate template = new RestTemplate();
-        String json = template.getForObject(baseUrlWithKey + "&t=" + title + "&r=json", String.class);
+        String json = template.getForObject("http://www.omdbapi.com/?apikey=598ae671&t=" + title + "&r=json", String.class);
 
         return json;
     }
