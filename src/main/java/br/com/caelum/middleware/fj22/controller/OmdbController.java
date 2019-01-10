@@ -13,9 +13,6 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class OmdbController {
 
-    @Value("${url.movies.base}")
-    private String baseUrlWithKey;
-
     @GetMapping(value = "/movie", produces = "application/json")
     public String recebe(@RequestParam("title") String title) {
 
